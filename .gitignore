@@ -1,0 +1,57 @@
+# Arquivos temporários do Visual Studio
+.vs/
+
+# Pasta de saída de compilação
+bin/
+obj/
+
+# Pasta de dependências do NuGet
+packages/
+
+# Arquivos de configuração do Visual Studio
+*.vsconfig
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Arquivos de cache e de histórico de análise do Visual Studio
+*.nuget.props
+*.nuget.targets
+*.obj
+*.cache
+*.log
+*.vsdbg
+*.vscode
+*.vssscc
+*.vspscc
+
+# Arquivos de projeto gerados
+*.dbmdl
+*.pfx
+*.publishsettings
+*.xml
+
+# Arquivos do Azure
+*.cscfg
+*.csdef
+
+# Arquivos de teste gerados
+TestResults/
+[Tt]est[Bb]in/
+[Bb]uild[Ll]og.*
+
+# Arquivos de profiling
+*.psess
+*.vsp
+*.vspx
+*.sap
+
+# Pasta de publicação
+_PublishedWebsites/
+PublishProfiles/
+
+# Arquivos de análise
+*.csproj.nuget.dgspec.json
+*.csproj.nuget.g.props
+*.csproj.nuget.g.targets

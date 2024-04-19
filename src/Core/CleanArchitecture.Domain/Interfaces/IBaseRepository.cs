@@ -4,10 +4,10 @@ namespace CleanArchitecture.Domain.Interfaces;
 
 public interface IBaseRepository<T> where T : BaseEntity
 {
-    Task CreateAsync(T entity);
-    Task UpdateAsync(T entity);
-    Task DeleteAsync(T entity);
+    void Create(T entity);
+    void Update(T entity);
+    void Delete(T entity);
 
-    Task<T> GetAsync(Guid id, CancellationToken cancellationToken);
-    Task<List<T>> GetAllAsync(Guid id, CancellationToken cancellationToken);
+    Task<T?> GetAsync(Guid id, CancellationToken cancellationToken);
+    Task<List<T>?> GetAllAsync(CancellationToken cancellationToken);
 }

@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using CleanArchitecture.Application.UseCases.CreateUser;
+using CleanArchitecture.Application.Shared.UserCQRS;
 using CleanArchitecture.Domain.Entities;
 
 namespace CleanArchitecture.Application.UseCases.CreateUser;
@@ -8,7 +8,7 @@ public sealed class CreateUserMapper : Profile
 {
     public CreateUserMapper()
     {
-        CreateMap<CreateUserRequest, User>();
-        CreateMap<User, CreateUserResponse>();
+        CreateMap<UserRequest.CreateUserRequest, User>();
+        CreateMap<User, UserResponse>();
     }
 }

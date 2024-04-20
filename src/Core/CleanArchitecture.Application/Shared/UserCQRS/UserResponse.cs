@@ -1,6 +1,6 @@
-﻿namespace CleanArchitecture.Application.UseCases.CreateUser;
+﻿namespace CleanArchitecture.Application.Shared.UserCQRS;
 
-public sealed record CreateUserResponse
+public sealed record UserResponse
 {
     public Guid Id { get; set; }
     public string? Email { get; set; }

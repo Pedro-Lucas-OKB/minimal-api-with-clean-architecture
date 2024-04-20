@@ -1,4 +1,5 @@
-﻿using CleanArchitecture.Application.UseCases.CreateUser;
+﻿using CleanArchitecture.Application.Shared.UserCQRS;
+using CleanArchitecture.Application.UseCases.CreateUser;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,15 +17,16 @@ public class UserController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<ActionResult<CreateUserResponse>> Create(CreateUserRequest request, CancellationToken cancellationToken)
+    public async Task<ActionResult<UserResponse>> Create(UserRequest.CreateUserRequest request, CancellationToken cancellationToken)
     {
-        /* var validator = new CreateUserValidator();
-        var validationResult = await validator.ValidateAsync(request);
-        if(!validationResult.IsValid) {
-            return BadRequest(validationResult.Errors);
-        } */
-
         var response = await _mediator.Send(request, cancellationToken);
+        return Ok(response);
+    }
+
+    [HttpGet]
+    public async Task<ActionResult<List<UserResponse>>> GetAll(CancellationToken cancellationToken) 
+    {
+        var response = await _mediator.Send(new UserRequest.GetAllUsersRequest(), cancellationToken);
         return Ok(response);
     }
 }

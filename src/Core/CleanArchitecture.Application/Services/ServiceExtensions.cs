@@ -6,7 +6,7 @@ namespace CleanArchitecture.Application.Services;
 
 public static class ServiceExtensions
 {
-    public static void ConfigureApplication(this IServiceCollection services)
+    public static void ConfigureApplicationApp(this IServiceCollection services)
     {
         services.AddAutoMapper(Assembly.GetExecutingAssembly());
 

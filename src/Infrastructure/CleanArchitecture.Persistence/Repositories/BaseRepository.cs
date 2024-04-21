@@ -33,7 +33,7 @@ public class BaseRepository<T> : IBaseRepository<T> where T : BaseEntity
         try
         {
             entity.DateUpdated = DateTime.Now;
-            Context.Remove(entity);
+            Context.Update(entity);
         }
         catch
         {

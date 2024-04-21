@@ -7,4 +7,6 @@ public static class UserRequest
     public sealed record CreateUserRequest (string Email, string Name) : IRequest<UserResponse>;
 
     public sealed record GetAllUsersRequest : IRequest<List<UserResponse>>;
+
+    public sealed record UpdateUserRequest (Guid Id, string Email, string Name) : IRequest<UserResponse>;
 }

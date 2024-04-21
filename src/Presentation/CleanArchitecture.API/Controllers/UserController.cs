@@ -29,4 +29,13 @@ public class UserController : ControllerBase
         var response = await _mediator.Send(new UserRequest.GetAllUsersRequest(), cancellationToken);
         return Ok(response);
     }
+
+    [HttpPut("{id}")]
+    public async Task<ActionResult<UserResponse>> Update(Guid id, UserRequest.UpdateUserRequest request, CancellationToken cancellationToken)
+    {
+        if(id != request.Id) return BadRequest();
+
+        var response = await _mediator.Send(request, cancellationToken);
+        return Ok(response);
+    }
 }

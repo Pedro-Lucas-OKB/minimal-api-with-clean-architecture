@@ -3,6 +3,7 @@ using CleanArchitecture.Application.Services;
 using CleanArchitecture.Persistence;
 using CleanArchitecture.Persistence.Context;
 using CleanArchitecture.API.Extensions;
+using Microsoft.EntityFrameworkCore;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -26,7 +27,6 @@ builder.Services.AddSwaggerGen(c =>
 });
 
 var app = builder.Build();
-CreateDatabase(app);
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -41,11 +41,24 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+MigrateDatabase(app);
 app.Run();
 
-static void CreateDatabase(WebApplication app)
+static void MigrateDatabase(IApplicationBuilder app)
 {
-    var serviceScope = app.Services.CreateScope();
-    var dataContext = serviceScope.ServiceProvider.GetService<ApplicationDbContext>();
-    dataContext?.Database.EnsureCreated();
+    using (var scope = app.ApplicationServices.CreateScope())
+    {
+        var services = scope.ServiceProvider;
+
+        try
+        {
+            var context = services.GetRequiredService<ApplicationDbContext>();
+            context.Database.Migrate();
+        }
+        catch (Exception ex)
+        {
+            var logger = services.GetRequiredService<ILogger<Program>>();
+            logger.LogError(ex, "Ocorreu um erro na migração/alimentação dos dados");
+        }
+    }
 }

@@ -2,7 +2,7 @@
 using CleanArchitecture.Application.Shared.UserCQRS;
 using CleanArchitecture.Domain.Entities;
 
-namespace CleanArchitecture.Application;
+namespace CleanArchitecture.Application.UseCases.UpdateUser;
 
 public sealed class UpdateUserMapper : Profile
 {

@@ -1,7 +1,7 @@
 ﻿using CleanArchitecture.Application.Shared.UserCQRS;
 using FluentValidation;
 
-namespace CleanArchitecture.Application;
+namespace CleanArchitecture.Application.UseCases.UpdateUser;
 
 public sealed class UpdateUserValidator : AbstractValidator<UserRequest.UpdateUserRequest>
 {

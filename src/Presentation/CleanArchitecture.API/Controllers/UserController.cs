@@ -24,7 +24,7 @@ public class UserController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<List<UserResponse>>> GetAll(CancellationToken cancellationToken) 
+    public async Task<ActionResult<List<UserResponse>>> GetAll(CancellationToken cancellationToken)
     {
         var response = await _mediator.Send(new UserRequest.GetAllUsersRequest(), cancellationToken);
         return Ok(response);
@@ -33,9 +33,20 @@ public class UserController : ControllerBase
     [HttpPut("{id}")]
     public async Task<ActionResult<UserResponse>> Update(Guid id, UserRequest.UpdateUserRequest request, CancellationToken cancellationToken)
     {
-        if(id != request.Id) return BadRequest();
+        if (id != request.Id) return BadRequest();
 
         var response = await _mediator.Send(request, cancellationToken);
+        return Ok(response);
+    }
+
+    [HttpDelete("{id}")]
+    public async Task<ActionResult<UserResponse>> Delete(Guid? id, CancellationToken cancellationToken)
+    {
+        if (id == null) return BadRequest();
+        
+        var deleteUser = new UserRequest.DeleteUserRequest(id.Value);
+
+        var response = await _mediator.Send(deleteUser, cancellationToken);
         return Ok(response);
     }
 }

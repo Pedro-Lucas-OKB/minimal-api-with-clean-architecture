@@ -11,4 +11,6 @@ public static class UserRequest
     public sealed record UpdateUserRequest (Guid Id, string Email, string Name) : IRequest<UserResponse>;
 
     public sealed record DeleteUserRequest (Guid Id) : IRequest<UserResponse>;
+
+    public sealed record GetByEmailUser (string? Email) : IRequest< UserResponse>;
 }

@@ -30,6 +30,13 @@ public class UserController : ControllerBase
         return Ok(response);
     }
 
+    [HttpGet("{email}")]
+    public async Task<ActionResult<UserResponse>> GetByEmail(string? email, CancellationToken cancellationToken)
+    {
+        var response = await _mediator.Send(new UserRequest.GetByEmailUser(email), cancellationToken);
+        return Ok(response);
+    }
+
     [HttpPut("{id}")]
     public async Task<ActionResult<UserResponse>> Update(Guid id, UserRequest.UpdateUserRequest request, CancellationToken cancellationToken)
     {

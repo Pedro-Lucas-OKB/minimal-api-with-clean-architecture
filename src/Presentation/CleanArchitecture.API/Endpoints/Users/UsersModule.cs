@@ -1,8 +1,7 @@
 ﻿using CleanArchitecture.Application.Shared.UserCQRS;
 using MediatR;
-using Microsoft.AspNetCore.Mvc;
 
-namespace CleanArchitecture.API;
+namespace CleanArchitecture.API.Endpoints.Users;
 
 public static class UsersModule
 {

@@ -4,6 +4,7 @@ using CleanArchitecture.Persistence;
 using CleanArchitecture.Persistence.Context;
 using CleanArchitecture.API.Extensions;
 using Microsoft.EntityFrameworkCore;
+using CleanArchitecture.API;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,14 +15,13 @@ builder.Services.ConfigureApplicationApp();
 builder.Services.ConfigurePersistenceApp(builder.Configuration);
 builder.Services.ConfigureCorsPolicy();
 
-builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo
     {
         Title = "Users API",
-        Description = "Example API",
+        Description = "Minimal API implemented with Clean Architecture",
         Version = "v1",
     });
 });
@@ -36,10 +36,10 @@ if (app.Environment.IsDevelopment())
     {
         c.SwaggerEndpoint("v1/swagger.json", "Users API V1");
     });
-    app.MapControllers();
     app.UseCors();
 }
 
+app.RegisterEndpoints();
 app.UseHttpsRedirection();
 MigrateDatabase(app);
 app.Run();

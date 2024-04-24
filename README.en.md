@@ -1,10 +1,10 @@
-# Minimal API com Clean Architecture
+# Minimal API with Clean Architecture
 ![C#](https://img.shields.io/badge/c%23-%23239120.svg?style=for-the-badge&logo=csharp&logoColor=white)
 ![ASP .NET](https://img.shields.io/badge/ASP_.NET-v8.0-808080?style=for-the-badge&logo=.net&logoColor=white&&labelColor=purple)
 ![SQLite](https://img.shields.io/badge/sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white)
 
 ## Minimal API
-É uma abordagem simplificada para implementar APIs de HTTP, com foco na diminuição de código e de configuração. Com poucas linhas de código, é possível criar endpoints REST funcionais. [(Minimal API)](https://learn.microsoft.com/pt-br/aspnet/core/fundamentals/minimal-apis/overview?view=aspnetcore-8.0)
+It is a simplified approach to implement HTTP APIs, focusing on reducing code and configuration. With just a few lines of code, it is possible to create functional REST endpoints. [(Minimal API)](https://learn.microsoft.com/pt-br/aspnet/core/fundamentals/minimal-apis/overview?view=aspnetcore-8.0)
 
 ```csharp
 var builder = WebApplication.CreateBuilder(args);
@@ -17,30 +17,30 @@ app.Run();
 ```
 
 ## Clean Architecture
-A Clean Architecture é um padrão arquitetural de software baseado no princípio da separação de interesses, onde a aplicação é dividida em diferentes camadas, cada uma com sua preocupação. O objetivo é proporcionar aos desenvolvedores uma forma melhor de organizar o código, separando as regras de negócio, facilitando o desenvolvimento e a manutenção do código.
+Clean Architecture is a software architectural pattern based on the principle of separation of concerns, where the application is divided into different layers, each with its own concern. The goal is to provide developers with a better way to organize code, separating business rules, facilitating development, and code maintenance.
 
 ![The Clean Architecture by Robert C. Martin](https://blog.cleancoder.com/uncle-bob/images/2012-08-13-the-clean-architecture/CleanArchitecture.jpg)
 : The Clean Architecture by Robert C. Martin
 
-## Padrões utilizados
+## Used Patterns
 - Command and Query Responsibility Segregation (CQRS)
 - Mediator
 - Repository
 - Unit of Work
 
-## Como está implementada a dependência entre os projetos nessa solução?
+## How is the dependency between projects implemented in this solution?
 
-![Diagrama de camadas](docs/Minimal%20API%20with%20Clean%20Architecture.jpg)
+![layers diagram](docs/Minimal%20API%20with%20Clean%20Architecture.jpg)
 : Minimal API with Clean Architecture
 
-## Testando o Projeto
-A API está documentada com a utilização do Swagger. Ao acessar a página, é possivel testar todas as requisições HTTP.
+## Testing the Project
+The API is documented using Swagger. By accessing the page, it is possible to test all HTTP requests.
 
-### Pré-requisitos:
+### Prerequisites:
 * [.NET 8.0 SDK](https://dotnet.microsoft.com/pt-br/download)
 
-### Packages utilizados 
-> Os comandos ```dotnet build``` e ```dotnet run``` restauram as dependências automaticamente.
+### Used Packages
+> The ```dotnet build``` and ```dotnet run``` commands automatically restore dependencies.
 
 * Application
     - [AutoMapper](https://www.nuget.org/packages/automapper/) : ```dotnet add package AutoMapper --version 13.0.1```
@@ -64,14 +64,14 @@ dotnet build
 cd src/Presentation/CleanArchitecture.API
 dotnet run
 ```
-Acesse: ```https://localhost:7054/swagger``` ou ```http://localhost:5269/swagger``` para utilizar o Swagger e testar a API.
+Access: ```https://localhost:7054/swagger``` or ```http://localhost:5269/swagger``` to use Swagger and test the API.
 
-> Pode ser necessário autorizar o uso de HTTPS no ambiente local. Para isso, ative a confiança no *cetificado https* do *dotnet* com o seguinte comando: ```dotnet dev-certs https --trust```
+> You may need to authorize the use of HTTPS in the local environment. To do this, trust the dotnet https certificate with the following command: ```dotnet dev-certs https --trust```
 
-## Referências
+## References
 
-- A implementação da estrutura da Clean Architecture foi baseada no conteúdo do canal [Jose Carlos Macoratti](https://www.youtube.com/@josecarlosmacoratti).
-- [Documentação ASP .NET](https://learn.microsoft.com/pt-br/aspnet/core/?view=aspnetcore-8.0)
+- The implementation of the Clean Architecture structure was based on the content from the [Jose Carlos Macoratti](https://www.youtube.com/@josecarlosmacoratti) channel.
+- [ASP .NET Documentation](https://learn.microsoft.com/pt-br/aspnet/core/?view=aspnetcore-8.0)
 
-## Licença
+## License
 [![License](https://img.shields.io/github/license/Ileriayo/markdown-badges?style=for-the-badge)](./LICENSE)

@@ -1,0 +1,14 @@
+services:
+  minimalapi:
+    build:
+      context: .
+      target: final
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./src/Presentation/CleanArchitecture.API/app.db:/app/app.db
+    image: minimal-api-with-clean-architecture
+
+volumes:
+  appDb:

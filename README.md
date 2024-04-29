@@ -2,6 +2,7 @@
 ![C#](https://img.shields.io/badge/c%23-%23239120.svg?style=for-the-badge&logo=csharp&logoColor=white)
 ![ASP .NET](https://img.shields.io/badge/ASP_.NET-v8.0-808080?style=for-the-badge&logo=.net&logoColor=white&&labelColor=purple)
 ![SQLite](https://img.shields.io/badge/sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white)
+![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
 
 ## Minimal API
 É uma abordagem simplificada para implementar APIs de HTTP, com foco na diminuição de código e de configuração. Com poucas linhas de código, é possível criar endpoints REST funcionais. [(Minimal API)](https://learn.microsoft.com/pt-br/aspnet/core/fundamentals/minimal-apis/overview?view=aspnetcore-8.0)
@@ -22,7 +23,7 @@ A Clean Architecture é um padrão arquitetural de software baseado no princípi
 ![The Clean Architecture by Robert C. Martin](https://blog.cleancoder.com/uncle-bob/images/2012-08-13-the-clean-architecture/CleanArchitecture.jpg)
 : The Clean Architecture by Robert C. Martin
 
-## Padrões utilizados
+## Padrões Utilizados
 - Command and Query Responsibility Segregation (CQRS)
 - Mediator
 - Repository
@@ -36,10 +37,16 @@ A Clean Architecture é um padrão arquitetural de software baseado no princípi
 ## Testando o Projeto
 A API está documentada com a utilização do Swagger. Ao acessar a página, é possivel testar todas as requisições HTTP.
 
-### Pré-requisitos:
+### Docker
+Execute o comando ```docker compose up --build``` e acesse ```http://localhost:8080/swagger``` para testar a API. 
+
+Também é possível baixar a imagem com o comando ```docker pull pedrolucas5100/minimal-api-with-clean-architecture``` e criar seus próprios containers.
+
+### Testando Localmente
+#### Pré-requisitos:
 * [.NET 8.0 SDK](https://dotnet.microsoft.com/pt-br/download)
 
-### Packages utilizados 
+#### Packages utilizados 
 > Os comandos ```dotnet build``` e ```dotnet run``` restauram as dependências automaticamente.
 
 * Application
@@ -53,13 +60,13 @@ A API está documentada com a utilização do Swagger. Ao acessar a página, é 
     - [EntityFrameworkCore.Design]() : ```dotnet add package Microsoft.EntityFrameworkCore.Design --version 8.0.0```
     - [Swagger](https://www.nuget.org/packages/Swashbuckle.AspNetCore/6.4.0) : ```dotnet add package Swashbuckle.AspNetCore --version 6.4.0```
 
-### Build
+#### Build
 ```bash
 cd minimal-api-with-clean-architecture/
 dotnet build
 ```
 
-### Run
+#### Run
 ```bash
 cd src/Presentation/CleanArchitecture.API
 dotnet run

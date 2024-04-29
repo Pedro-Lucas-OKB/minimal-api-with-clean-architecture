@@ -2,6 +2,7 @@
 ![C#](https://img.shields.io/badge/c%23-%23239120.svg?style=for-the-badge&logo=csharp&logoColor=white)
 ![ASP .NET](https://img.shields.io/badge/ASP_.NET-v8.0-808080?style=for-the-badge&logo=.net&logoColor=white&&labelColor=purple)
 ![SQLite](https://img.shields.io/badge/sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white)
+![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
 
 ## Minimal API
 It is a simplified approach to implement HTTP APIs, focusing on reducing code and configuration. With just a few lines of code, it is possible to create functional REST endpoints. [(Minimal API)](https://learn.microsoft.com/pt-br/aspnet/core/fundamentals/minimal-apis/overview?view=aspnetcore-8.0)
@@ -36,10 +37,16 @@ Clean Architecture is a software architectural pattern based on the principle of
 ## Testing the Project
 The API is documented using Swagger. By accessing the page, it is possible to test all HTTP requests.
 
-### Prerequisites:
+### Docker
+Run the ```docker compose up --build``` command and access ```http://localhost:8080/swagger``` to test the API.
+
+You can also pull the image using the ```docker pull pedrolucas5100/minimal-api-with-clean-architecture``` command and create your own containers.
+
+### Local Test
+#### Prerequisites:
 * [.NET 8.0 SDK](https://dotnet.microsoft.com/pt-br/download)
 
-### Used Packages
+#### Used Packages
 > The ```dotnet build``` and ```dotnet run``` commands automatically restore dependencies.
 
 * Application
@@ -53,13 +60,13 @@ The API is documented using Swagger. By accessing the page, it is possible to te
     - [EntityFrameworkCore.Design]() : ```dotnet add package Microsoft.EntityFrameworkCore.Design --version 8.0.0```
     - [Swagger](https://www.nuget.org/packages/Swashbuckle.AspNetCore/6.4.0) : ```dotnet add package Swashbuckle.AspNetCore --version 6.4.0```
 
-### Build
+#### Build
 ```bash
 cd minimal-api-with-clean-architecture/
 dotnet build
 ```
 
-### Run
+#### Run
 ```bash
 cd src/Presentation/CleanArchitecture.API
 dotnet run
